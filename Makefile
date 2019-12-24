@@ -9,12 +9,20 @@ CFLAGS+= -DDEBUG
 # pour tester avec ls
 CFLAGS+= -fPIC
 LDFLAGS= $(HOST32)
-TESTS+=test
-PROGRAMS=memshell $(TESTS)
+TEST+=test
+TESTS_CMD+=test_ls test_dir test_date test_env test_locale test_id test_find test_cat
+TESTS+= $(TESTS_CMD) $(TEST)
+PROGRAMS=memshell $(TEST)
 
-.PHONY: clean all
+.PHONY: clean all tests tests_cmd
 
 all: $(PROGRAMS) libmalloc.so
+
+tests: $(TEST)
+	for file in $(TESTS);do ./$$file; done
+
+tests_cmd: $(TESTS_CMD)
+	for file in $(TESTS_CMD);do ./$$file; done
 
 %.o: %.c
 	$(CC) -c $(CFLAGS) -MMD -MF .$@.deps -o $@ $<

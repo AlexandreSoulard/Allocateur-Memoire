@@ -1,0 +1,6 @@
+Nous avons implémenté les fonctions sauf mem_fit_best et mem_fit_worst qui étaient optionnelles (nous nous sommes concentré sur le reste)
+
+Commandes :
+- make : compile tous les programmes et libmalloc.so (comme make all)
+- make tests : compile le programme test.c et l'exécute
+- make tests_cmd : compile libmalloc.so et lance des tests sur différentes commandes du terminal

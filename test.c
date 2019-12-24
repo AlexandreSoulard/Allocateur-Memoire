@@ -203,6 +203,6 @@ int main() {
     test2();
     test3();
   }
-  printf("Tous les tests sont passes!!\n");
+  printf("Les 100 tests sont passes!!\n");
   return 0;
 }
